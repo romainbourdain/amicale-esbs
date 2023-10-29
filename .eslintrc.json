@@ -1,3 +1,50 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/strict",
+    "plugin:github/recommended",
+    "plugin:import/recommended",
+    "plugin:unicorn/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "github",
+    "@typescript-eslint",
+    "json-format",
+    "promise",
+    "import",
+    "unicorn"
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    ".next",
+    "next.config.js",
+    "postcss.config.js",
+    "tailwind.config.ts"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-namespace": "off",
+    "import/no-unresolved": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-console": "warn",
+    "prettier/prettier": "off",
+    "filenames/match-regex": "off",
+    "react/no-unescaped-entities": "off",
+    "unicorn/filename-case": "off"
+  }
 }

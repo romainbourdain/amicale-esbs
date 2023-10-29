@@ -1,27 +1,57 @@
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sand-dark.css";
+
+@import "@radix-ui/colors/orange.css";
+@import "@radix-ui/colors/orange-dark.css";
+
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blue-dark.css";
+
+@import "@radix-ui/colors/tomato.css";
+@import "@radix-ui/colors/tomato-dark.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-fg-ui-gray;
+  }
+  body {
+    @apply bg-app-gray text-hc-gray;
+  }
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl;
+  }
+
+  section {
+    @apply flex flex-col gap-16 items-start;
+  }
 }
+
+/* 
+    --app-background: # ;
+    --subtle-background: # ;
+    --ui-background: # ;
+    --hover-ui-background: # ;
+    --selected-ui-background: # ;
+    --subtle-border: # ;
+    --ui-border: # ;
+    --hover-ui-border: # ;
+    --solid-background: # ;
+    --hover-solid: # ;
+    --text-low: # ;
+    --text-high:  # ;
+    */
