@@ -45,6 +45,7 @@
     "prettier/prettier": "off",
     "filenames/match-regex": "off",
     "react/no-unescaped-entities": "off",
-    "unicorn/filename-case": "off"
+    "unicorn/filename-case": "off",
+    "react/prop-types": "off"
   }
 }
