@@ -79,60 +79,80 @@ const HomePage = () => {
       </section>
       <section>
         <h2>Nos partenaires</h2>
-        <div className="title-par">
-          <h3>BDE Telecom Physique Strasbourg</h3>
-          <div className="flex items-center gap-5 my-3">
-            <FacebookButton
-              title="BDE Télécom Physique Strasbourg"
-              link="https://www.facebook.com/groups/1748570788912258/user/100080186935601/contributions"
-            />
-            <InstagramButton
-              title="@bdetps2023"
-              link="https://www.instagram.com/bdetps2023/"
-            />
-            <MailButton
-              title="contact@bde-tps.fr"
-              link="mailto:contact@bde-tps.fr"
+        <div className="flex flex-col gap-20">
+          <div className="flex gap-10 items-center">
+            <div className="title-par">
+              <h3>BDE Telecom Physique Strasbourg</h3>
+              <div className="flex items-center gap-5 my-3">
+                <FacebookButton
+                  title="BDE Télécom Physique Strasbourg"
+                  link="https://www.facebook.com/groups/1748570788912258/user/100080186935601/contributions"
+                />
+                <InstagramButton
+                  title="@bdetps2023"
+                  link="https://www.instagram.com/bdetps2023/"
+                />
+                <MailButton
+                  title="contact@bde-tps.fr"
+                  link="mailto:contact@bde-tps.fr"
+                />
+              </div>
+              <p>
+                L’ESBS partage une partie de ses locaux ainsi que le foyer
+                étudiant (le Fouaille) avec l’école de physique TPS. L’Amicale
+                BS et le BDE TPS sont donc en étroite collaboration.
+              </p>
+              <p>
+                Le BDE est l’équivalent de l’amicale mais pour les TPS. Il est
+                composé de 13 membres avec quelques postes qui varient.
+                L’élection du BDE est très spéciale puisqu’elle s’organise en un
+                mois complet de campagne en janvier. Pendant ce mois, plusieurs
+                listes vous organiseront des soirées quotidiennement pour que
+                vous votiez pour eux. De quoi passer un mois inoubliable, enfin
+                peut être que certains vont en oublier une partie.
+              </p>
+              <p>
+                Pour plus d’informations sur le BDE et les associations/clubs de
+                TPS, voici le{" "}
+                <Link href="https://bde-tps.fr/">lien internet</Link> du BDE.
+              </p>
+              <p>
+                Il est important de se rappeler que les TPS ne mordent pas et
+                que la cohabitation de nos deux écoles est surtout un moyen de
+                se faire encore plus d’amis.
+              </p>
+            </div>
+            <Image
+              src="/home/bde.png"
+              alt="logo bde"
+              height={200}
+              width={200}
+              className="bg-white rounded-full aspect-square"
             />
           </div>
-          <p>
-            L’ESBS partage une partie de ses locaux ainsi que le foyer étudiant
-            (le Fouaille) avec l’école de physique TPS. L’Amicale BS et le BDE
-            TPS sont donc en étroite collaboration.
-          </p>
-          <p>
-            Le BDE est l’équivalent de l’amicale mais pour les TPS. Il est
-            composé de 13 membres avec quelques postes qui varient. L’élection
-            du BDE est très spéciale puisqu’elle s’organise en un mois complet
-            de campagne en janvier. Pendant ce mois, plusieurs listes vous
-            organiseront des soirées quotidiennement pour que vous votiez pour
-            eux. De quoi passer un mois inoubliable, enfin peut être que
-            certains vont en oublier une partie.
-          </p>
-          <p>
-            Pour plus d’informations sur le BDE et les associations/clubs de
-            TPS, voici le <Link href="https://bde-tps.fr/">lien internet</Link>{" "}
-            du BDE.
-          </p>
-          <p>
-            Il est important de se rappeler que les TPS ne mordent pas et que la
-            cohabitation de nos deux écoles est surtout un moyen de se faire
-            encore plus d’amis.
-          </p>
-        </div>
-        <div className="title-par">
-          <h3>Bureau des Fêtes</h3>
-          <div className="flex items-center gap-5 my-3">
-            <FacebookButton
-              title="BDF PS"
-              link="https://www.facebook.com/BdfPs/"
+          <div className="flex gap-10 items-center">
+            <Image
+              src="/home/bdf.png"
+              alt="logo bdf"
+              height={200}
+              width={200}
+              className="bg-white rounded-full aspect-square object-contain"
             />
+            <div className="title-par">
+              <h3>Bureau des Fêtes</h3>
+              <div className="py-3">
+                <FacebookButton
+                  title="BDF PS"
+                  link="https://www.facebook.com/BdfPs/"
+                />
+              </div>
+              <p>
+                Le BDF est une association PS-BS, s’occupant du son et des
+                effets lumineux lors des évènements. Elle forme aussi les élèves
+                à utiliser les platines, afin de devenir de vrai DJ.
+              </p>
+            </div>
           </div>
-          <p>
-            Le BDF est une association PS-BS, s’occupant du son et des effets
-            lumineux lors des évènements. Elle forme aussi les élèves à utiliser
-            les platines, afin de devenir de vrai DJ.
-          </p>
         </div>
       </section>
     </>
