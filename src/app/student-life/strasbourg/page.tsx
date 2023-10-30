@@ -142,9 +142,9 @@ const StrasbourgPage = () => {
       </section>
       <section>
         <h2>Où boire</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid-container">
           {bars.map((bar, id) => (
-            <Card key={id}>
+            <Card key={id} className="w-full max-w-sm">
               <CardHeader>
                 <CardTitle>{bar.title}</CardTitle>
                 <CardDescription>{bar.address}</CardDescription>
@@ -156,9 +156,9 @@ const StrasbourgPage = () => {
       </section>
       <section>
         <h2>Où manger</h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid-container">
           {restaurants.map((restaurant, id) => (
-            <Card key={id}>
+            <Card key={id} className="w-full max-w-sm">
               <CardHeader>
                 <CardTitle>{restaurant.title}</CardTitle>
                 <CardDescription>{restaurant.address}</CardDescription>

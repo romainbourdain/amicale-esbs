@@ -1,14 +1,20 @@
-import type { Metadata } from "next";
-import "@/styles/globals.css";
-import React from "react";
-import clsx from "clsx";
-import ThemeProvider from "@/components/theme/ThemeProvider";
 import Navbar from "@/components/Navigation/Navbar";
-import Head from "next/head";
+import ThemeProvider from "@/components/theme/ThemeProvider";
+import "@/styles/globals.css";
+import clsx from "clsx";
+import type { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Amicale ESBS",
   description: "Site officiel de l'amicale ESBS",
+  icons: [
+    {
+      url: "/icon?<generated>",
+      type: "image/<generated>",
+      sizes: "<generated>",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -18,13 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="h-full">
-      <Head>
-        <link
-          href="/icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
-        />
-      </Head>
       <body className={clsx("bg-app-gray h-full")}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex flex-col h-full">

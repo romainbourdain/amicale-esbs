@@ -25,7 +25,7 @@ const HomeCard = ({
   return (
     <Card
       onClick={() => router.push(link)}
-      className="flex-1 flex flex-col max-w-sm w-full group cursor-pointer hover:border-fg-ui-hover-gray transition-all duration-500 ease-in-out"
+      className="w-full max-w-sm flex flex-col justify-between group cursor-pointer hover:border-fg-ui-hover-gray transition-all duration-500 ease-in-out"
     >
       <CardHeader>
         <CardTitle>{title}</CardTitle>
@@ -38,7 +38,7 @@ const HomeCard = ({
           <Image
             src={image}
             sizes="100vw"
-            alt={`${title}-image`}
+            alt={`Image ${title}`}
             width={10}
             height={10}
             className="w-full aspect-square object-cover max-w-[300px] group-hover:scale-110 transition-all duration-500 ease-in-out"
