@@ -1,11 +1,11 @@
-import SocialNetworkButton from "@/components/Buttons/SocialNetworkButton";
-import { Facebook, Instagram } from "lucide-react";
-import HomeCard from "./HomeCard";
+import FacebookButton from "@/components/Buttons/FacebookButton";
+import InstagramButton from "@/components/Buttons/InstagramButton";
 import Image from "next/image";
+import HomeCard from "./HomeCard";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col gap-36">
+    <>
       <section>
         <div className="flex flex-col gap-3">
           <h1>Bienvenue sur le site de l'amicale</h1>
@@ -16,16 +16,12 @@ const HomePage = () => {
           </p>
         </div>
         <div className="flex gap-5">
-          <SocialNetworkButton
-            className="bg-ui-facebook text-lc-facebook border-fg-ui-facebook hover:bg-ui-hover-facebook hover:border-fg-ui-hover-facebook"
+          <FacebookButton
             link="https://www.facebook.com/esbs.amicale/?locale=fr_FR"
-            icon={<Facebook size={25} />}
             title="Amicale ESBS"
           />
-          <SocialNetworkButton
-            className="bg-ui-instagram text-lc-instagram border-fg-ui-instagram hover:bg-ui-hover-instagram hover:border-fg-ui-hover-instagram"
+          <InstagramButton
             link="https://www.instagram.com/amicale_esbs/"
-            icon={<Instagram size={25} />}
             title="@amicale_esbs"
           />
         </div>
@@ -41,10 +37,10 @@ const HomePage = () => {
         <h2>Découvrir l'école</h2>
         <div className="flex gap-5 justify-center items-center md:items-stretch flex-col md:flex-row">
           <HomeCard
-            title="Formations"
+            title="L'école"
             description="Présentation de la formation ESBS et de la formation ChemBiotech"
             image="/home/card1.jpeg"
-            link="/formations"
+            link="/school"
           />
           <HomeCard
             title="Vie étudiante"
@@ -62,10 +58,7 @@ const HomePage = () => {
           />
         </div>
       </section>
-      <section>
-        <h2>Notre équipe</h2>
-      </section>
-    </div>
+    </>
   );
 };
 
