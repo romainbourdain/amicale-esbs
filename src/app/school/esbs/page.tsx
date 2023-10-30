@@ -17,7 +17,7 @@ const Formation = () => {
         />
         <p>
           Tu auras la chance d’étudier dans le cluster{" "}
-          <Link href="https://www.biovalley-france.com/fr/" target="_blank">
+          <Link href="https://www.biovalley-france.com/fr/">
             Alsace Biovalley
           </Link>
           , un pôle dynamique regroupant de nombreuses entreprises, travaillant
