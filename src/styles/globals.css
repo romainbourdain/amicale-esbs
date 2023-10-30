@@ -40,6 +40,10 @@
     @apply text-lg font-bold tracking-tight md:text-xl lg:text-2xl;
   }
 
+  h4 {
+    @apply text-base font-bold tracking-tight md:text-lg lg:text-xl;
+  }
+
   p a {
     @apply text-lc underline;
   }
@@ -60,8 +64,19 @@
     @apply flex flex-col gap-8 items-start;
   }
 
-  .title-par {
+  .title-par,
+  .list-par,
+  .table-par {
     @apply flex flex-col gap-2 items-start;
+  }
+
+  .table-par th,
+  .table-par td {
+    @apply px-5 py-1;
+  }
+
+  .table-par th {
+    @apply py-2;
   }
 
   ::selection {
