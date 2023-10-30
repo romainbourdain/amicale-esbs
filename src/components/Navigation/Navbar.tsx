@@ -15,6 +15,41 @@ const Navbar = async () => {
   );
 };
 
+type NavbarItem = {
+  title: string;
+  type: "link" | "dropdown";
+  href?: string;
+  content?: { name: string; href: string }[];
+};
+
+const navbarItems: NavbarItem[] = [
+  {
+    title: "L'association",
+    href: "/association",
+    type: "link",
+  },
+  {
+    title: "L'école",
+    type: "dropdown",
+    content: [
+      { name: "L'ESBS", href: "/school/esbs" },
+      { name: "ChemBioTech", href: "/school/chembiotech" },
+      { name: "Admissions", href: "/school/admissions" },
+    ],
+  },
+  {
+    title: "Vie étudiante",
+    type: "dropdown",
+    content: [
+      { name: "Intégration", href: "/student-life/integration" },
+      { name: "Soirées", href: "/student-life/parties" },
+      { name: "Logement", href: "/student-life/accommodation" },
+      { name: "Sortir à Strasbourg", href: "/student-life/strasbourg" },
+      { name: "Sport", href: "/student-life/sports" },
+    ],
+  },
+];
+
 const LargeNavbar = ({ className }: { className?: string }) => {
   return (
     <nav
@@ -30,32 +65,25 @@ const LargeNavbar = ({ className }: { className?: string }) => {
             <h2 className="text-2xl font-bold">Amicale ESBS</h2>
           </Link>
           <div className="flex items-center gap-2">
-            <Link
-              href="/association"
-              className={buttonVariants({ variant: "ghost" })}
-            >
-              L'association
-            </Link>
-            <NavDropdown
-              title="L'école"
-              content={[
-                { name: "L'ESBS", href: "/school/esbs" },
-                { name: "ChemBioTech", href: "/school/chembiotech" },
-              ]}
-            />
-            <NavDropdown
-              title="Vie étudiante"
-              content={[
-                { name: "Intégration", href: "/student-life/integration" },
-                { name: "Soirées", href: "/student-life/parties" },
-                { name: "Logement", href: "/student-life/accommodation" },
-                {
-                  name: "Sortir à Strasbourg",
-                  href: "/student-life/strasbourg",
-                },
-                { name: "Sport", href: "/student-life/sports" },
-              ]}
-            />
+            {navbarItems.map((item, id) => (
+              <>
+                {item.type === "link" ? (
+                  <Link
+                    href={item.href || ""}
+                    key={id}
+                    className={buttonVariants({ variant: "ghost" })}
+                  >
+                    {item.title}
+                  </Link>
+                ) : (
+                  <NavDropdown
+                    key={id}
+                    title={item.title}
+                    content={item.content || []}
+                  />
+                )}
+              </>
+            ))}
           </div>
         </div>
         <div className="flex gap-2 items-center">
@@ -90,32 +118,25 @@ const SmallNavbar = ({ className }: { className?: string }) => {
         </div>
       </div>
       <div className="container flex items-center py-2 m-auto justify-center gap-2">
-        <Link
-          href="/association"
-          className={buttonVariants({ variant: "ghost" })}
-        >
-          L'association
-        </Link>
-        <NavDropdown
-          title="L'école"
-          content={[
-            { name: "L'ESBS", href: "/school/esbs" },
-            { name: "ChemBioTech", href: "/school/chembiotech" },
-          ]}
-        />
-        <NavDropdown
-          title="Vie étudiante"
-          content={[
-            { name: "Intégration", href: "/student-life/integration" },
-            { name: "Soirées", href: "/student-life/parties" },
-            { name: "Logement", href: "/student-life/accommodation" },
-            {
-              name: "Sortir à Strasbourg",
-              href: "/student-life/strasbourg",
-            },
-            { name: "Sport", href: "/student-life/sports" },
-          ]}
-        />
+        {navbarItems.map((item, id) => (
+          <>
+            {item.type === "link" ? (
+              <Link
+                href={item.href || ""}
+                key={id}
+                className={buttonVariants({ variant: "ghost" })}
+              >
+                {item.title}
+              </Link>
+            ) : (
+              <NavDropdown
+                key={id}
+                title={item.title}
+                content={item.content || []}
+              />
+            )}
+          </>
+        ))}
       </div>
     </nav>
   );

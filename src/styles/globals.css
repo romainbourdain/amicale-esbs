@@ -61,7 +61,7 @@
   }
 
   .title-par {
-    @apply flex flex-col gap-2;
+    @apply flex flex-col gap-2 items-start;
   }
 
   ::selection {
