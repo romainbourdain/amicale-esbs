@@ -124,10 +124,10 @@ const HomePage = () => {
       <section>
         <h2>{text[language].home.partnersSection.title}</h2>
         <div className="flex flex-col gap-20">
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center flex-col lg:flex-row">
             <div className="title-par">
               <h3>{text[language].home.partnersSection.bde.title}</h3>
-              <div className="flex items-center gap-5 my-3">
+              <div className="flex items-center gap-5 my-3 flex-wrap">
                 <FacebookButton
                   title={text[language].home.partnersSection.bde.facebookButton}
                   link="https://www.facebook.com/bde.telecomps"
@@ -150,16 +150,16 @@ const HomePage = () => {
               alt="bde image"
               height={200}
               width={200}
-              className="bg-white rounded-full aspect-square"
+              className="bg-white rounded-full aspect-square hidden lg:block"
             />
           </div>
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center flex-col lg:flex-row">
             <Image
               src="/home/bdf.png"
               alt="bdf images"
               height={200}
               width={200}
-              className="bg-white rounded-full aspect-square object-contain"
+              className="bg-white rounded-full aspect-square object-contain hidden lg:block"
             />
             <div className="title-par">
               <h3>{text[language].home.partnersSection.bdf.title}</h3>

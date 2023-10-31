@@ -4,13 +4,12 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import NavDropdown from "./NavDropdown";
-import clsx from "clsx";
 
 const Navbar = async () => {
   return (
     <>
-      <SmallNavbar className="visible lg:invisible" />
-      <LargeNavbar className="invisible lg:visible" />
+      <SmallNavbar />
+      <LargeNavbar />
     </>
   );
 };
@@ -50,14 +49,9 @@ const navbarItems: NavbarItem[] = [
   },
 ];
 
-const LargeNavbar = ({ className }: { className?: string }) => {
+const LargeNavbar = () => {
   return (
-    <nav
-      className={clsx(
-        "border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10",
-        className
-      )}
-    >
+    <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 hidden lg:block">
       <div className="container flex items-center py-2 m-auto gap-1 justify-between">
         <div className="flex items-center gap-5">
           <Link href="/" className="flex items-center gap-2">
@@ -96,14 +90,9 @@ const LargeNavbar = ({ className }: { className?: string }) => {
   );
 };
 
-const SmallNavbar = ({ className }: { className?: string }) => {
+const SmallNavbar = () => {
   return (
-    <nav
-      className={clsx(
-        "border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 flex flex-col",
-        className
-      )}
-    >
+    <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 flex flex-col lg:hidden">
       <div className="container flex items-center py-2 m-auto gap-1 justify-between">
         <div className="flex items-center gap-5">
           <Link href="/" className="flex items-center gap-2">
