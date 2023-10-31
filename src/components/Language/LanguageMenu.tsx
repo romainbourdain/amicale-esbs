@@ -1,7 +1,6 @@
 "use client";
 
 import { Globe } from "lucide-react";
-import { useState } from "react";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -10,9 +9,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { useLanguage } from "./LanguageProvider";
 
 const LanguageMenu = () => {
-  const [language, setLanguage] = useState("fr");
+  const { language, setLanguage } = useLanguage();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -21,7 +21,14 @@ const LanguageMenu = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
+        <DropdownMenuRadioGroup
+          value={language}
+          onValueChange={(value: string) => {
+            if (value === "fr" || value === "en") {
+              setLanguage(value);
+            }
+          }}
+        >
           <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>

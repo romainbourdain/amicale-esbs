@@ -1,130 +1,153 @@
+"use client";
+
 import FacebookButton from "@/components/Buttons/FacebookButton";
 import InstagramButton from "@/components/Buttons/InstagramButton";
-import Image from "next/image";
-import HomeCard from "./HomeCard";
-import Link from "next/link";
 import MailButton from "@/components/Buttons/MailButton";
+import { useLanguage } from "@/components/Language/LanguageProvider";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import text from "@/constants/text";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const HomePage = () => {
+  const { language } = useLanguage();
+  const router = useRouter();
+
+  const cards = [
+    {
+      title: text[language].home.discoverSection.cards.amicale.title,
+      description:
+        text[language].home.discoverSection.cards.amicale.description,
+      image: "",
+      link: "/association",
+    },
+    {
+      title: text[language].home.discoverSection.cards.esbs.title,
+      description: text[language].home.discoverSection.cards.esbs.description,
+      image: "/home/esbs-card.jpg",
+      link: "/school/esbs",
+    },
+    {
+      title: text[language].home.discoverSection.cards.chembiotech.title,
+      description:
+        text[language].home.discoverSection.cards.chembiotech.description,
+      image: "/home/chembiotech-card.jpg",
+      link: "/school/chembiotech",
+    },
+    {
+      title: text[language].home.discoverSection.cards.integration.title,
+      description:
+        text[language].home.discoverSection.cards.integration.description,
+      image: "",
+      link: "/student-life/integration",
+    },
+    {
+      title: text[language].home.discoverSection.cards.parties.title,
+      description:
+        text[language].home.discoverSection.cards.parties.description,
+      image: "/home/parties-card.jpg",
+      link: "/student-life/parties",
+    },
+    {
+      title: text[language].home.discoverSection.cards.strasbourg.title,
+      description:
+        text[language].home.discoverSection.cards.strasbourg.description,
+      image: "/home/strasbourg-card.jpg",
+      link: "/student-life/strasbourg",
+    },
+  ];
+
   return (
     <>
       <section>
         <div className="flex flex-col gap-3">
-          <h1>Bienvenue sur le site de l'amicale</h1>
-          <p className="md:text-lg lg:text-xl text-lc-gray">
-            Ici, tu trouveras des conseils pour l'entretien d’admissibilité, des
-            informations sur les formations proposées par l’école et leurs
-            débouchés.
-          </p>
+          <h1>{text[language].home.headSection.title}</h1>
+          <div className="md:text-lg lg:text-xl text-lc-gray">
+            {text[language].home.headSection.description}
+          </div>
         </div>
         <div className="flex gap-5">
           <FacebookButton
             link="https://www.facebook.com/esbs.amicale/?locale=fr_FR"
-            title="Amicale ESBS"
+            title={text[language].home.headSection.facebookButton}
           />
           <InstagramButton
             link="https://www.instagram.com/amicale_esbs/"
-            title="@amicale_esbs"
+            title={text[language].home.headSection.instagramButton}
           />
         </div>
         <Image
-          src="/home/team.jpg"
-          alt="team"
+          src="/home/amicale.jpg"
+          alt="amicale image"
           height={720}
           width={1080}
           className="w-full rounded-xl"
         />
       </section>
       <section>
-        <h2>Découvrir l'école</h2>
+        <h2>{text[language].home.discoverSection.title}</h2>
         <div className="grid-container">
-          <HomeCard
-            title="L'Amicale"
-            description="L’Amicale étudiante de l’ESBS a pour rôle de promouvoir, organiser et financer les évènements de la vie étudiante."
-            image=""
-            link="/association"
-          />
-          <HomeCard
-            title="L'ESBS"
-            description="L’ESBS est une école publique, qui enseigne un programme trinational. Nous étudions les bases de la biotechnologie, les sciences de l’ingénieur et les sciences humaines, économiques et sociales (HES). La plupart des cours se déroulent à Strasbourg, mais des cours pratiques et des projets sont également dispensés en Allemagne et en Suisse."
-            image="/home/esbs-card.jpg"
-            link="/school/esbs"
-          />
-
-          <HomeCard
-            title="ChemBioTech"
-            description="ChemBioTech est LA nouvelle formation d’ingénieur reconnue par la CTI qui te permet d’avoir une double compétence en chimie et en biotechnologie dans deux écoles d’ingénieur simultanément, un cursus unique en France fondé pour répondre aux demandes de professionnels !"
-            image="/home/chembiotech-card.jpg"
-            link="/school/chembiotech"
-          />
-          <HomeCard
-            title="Mois d'intégration"
-            description=""
-            image=""
-            link="/student-life/integration"
-          />
-          <HomeCard
-            title="Soirées ESBS"
-            description="Toutes les informations sur les soirées à l'ESBS"
-            image="/home/parties-card.jpg"
-            link="/student-life/parties"
-          />
-          <HomeCard
-            title="Sortir à Strasbourg"
-            description="Liste non exaustive des adresses que nous vous recommandons à Strasbourg."
-            image="/home/strasbourg-card.jpg"
-            link="/student-life/strasbourg"
-          />
+          {cards.map((card, index) => (
+            <Card
+              key={index}
+              onClick={() => router.push(card.link)}
+              className="w-full max-w-sm flex flex-col justify-between group cursor-pointer hover:border-fg-ui-hover-gray transition-all duration-500 ease-in-out"
+            >
+              <CardHeader>
+                <CardTitle>{card.title}</CardTitle>
+                <CardDescription className="break-normal">
+                  {card.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 flex items-end justify-center">
+                <div className="overflow-hidden rounded-xl">
+                  <Image
+                    src={card.image}
+                    sizes="100vw"
+                    alt={`Image ${card.title}`}
+                    width={10}
+                    height={10}
+                    className="w-full aspect-square object-cover max-w-[300px] group-hover:scale-110 transition-all duration-500 ease-in-out"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
       <section>
-        <h2>Nos partenaires</h2>
+        <h2>{text[language].home.partnersSection.title}</h2>
         <div className="flex flex-col gap-20">
           <div className="flex gap-10 items-center">
             <div className="title-par">
-              <h3>BDE Telecom Physique Strasbourg</h3>
+              <h3>{text[language].home.partnersSection.bde.title}</h3>
               <div className="flex items-center gap-5 my-3">
                 <FacebookButton
-                  title="BDE Télécom Physique Strasbourg"
-                  link="https://www.facebook.com/groups/1748570788912258/user/100080186935601/contributions"
+                  title={text[language].home.partnersSection.bde.facebookButton}
+                  link="https://www.facebook.com/bde.telecomps"
                 />
                 <InstagramButton
-                  title="@bdetps2023"
+                  title={
+                    text[language].home.partnersSection.bde.instagramButton
+                  }
                   link="https://www.instagram.com/bdetps2023/"
                 />
                 <MailButton
-                  title="contact@bde-tps.fr"
+                  title={text[language].home.partnersSection.bde.mailButton}
                   link="mailto:contact@bde-tps.fr"
                 />
               </div>
-              <p>
-                L’ESBS partage une partie de ses locaux ainsi que le foyer
-                étudiant (le Fouaille) avec l’école de physique TPS. L’Amicale
-                BS et le BDE TPS sont donc en étroite collaboration.
-              </p>
-              <p>
-                Le BDE est l’équivalent de l’amicale mais pour les TPS. Il est
-                composé de 13 membres avec quelques postes qui varient.
-                L’élection du BDE est très spéciale puisqu’elle s’organise en un
-                mois complet de campagne en janvier. Pendant ce mois, plusieurs
-                listes vous organiseront des soirées quotidiennement pour que
-                vous votiez pour eux. De quoi passer un mois inoubliable, enfin
-                peut être que certains vont en oublier une partie.
-              </p>
-              <p>
-                Pour plus d’informations sur le BDE et les associations/clubs de
-                TPS, voici le{" "}
-                <Link href="https://bde-tps.fr/">lien internet</Link> du BDE.
-              </p>
-              <p>
-                Il est important de se rappeler que les TPS ne mordent pas et
-                que la cohabitation de nos deux écoles est surtout un moyen de
-                se faire encore plus d’amis.
-              </p>
+              {text[language].home.partnersSection.bde.description}
             </div>
             <Image
               src="/home/bde.png"
-              alt="logo bde"
+              alt="bde image"
               height={200}
               width={200}
               className="bg-white rounded-full aspect-square"
@@ -133,24 +156,20 @@ const HomePage = () => {
           <div className="flex gap-10 items-center">
             <Image
               src="/home/bdf.png"
-              alt="logo bdf"
+              alt="bdf images"
               height={200}
               width={200}
               className="bg-white rounded-full aspect-square object-contain"
             />
             <div className="title-par">
-              <h3>Bureau des Fêtes</h3>
+              <h3>{text[language].home.partnersSection.bdf.title}</h3>
               <div className="py-3">
                 <FacebookButton
-                  title="BDF PS"
+                  title={text[language].home.partnersSection.bdf.facebookButton}
                   link="https://www.facebook.com/BdfPs/"
                 />
               </div>
-              <p>
-                Le BDF est une association PS-BS, s’occupant du son et des
-                effets lumineux lors des évènements. Elle forme aussi les élèves
-                à utiliser les platines, afin de devenir de vrai DJ.
-              </p>
+              {text[language].home.partnersSection.bdf.description}
             </div>
           </div>
         </div>

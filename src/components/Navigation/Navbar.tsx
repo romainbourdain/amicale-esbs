@@ -1,4 +1,4 @@
-import LanguageMenu from "@/components/Navigation/LanguageMenu";
+import LanguageMenu from "@/components/Language/LanguageMenu";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
