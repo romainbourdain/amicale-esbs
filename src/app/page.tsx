@@ -127,7 +127,7 @@ const HomePage = () => {
           <div className="flex gap-10 items-center flex-col lg:flex-row">
             <div className="title-par">
               <h3>{text[language].home.partnersSection.bde.title}</h3>
-              <div className="flex items-center gap-5 my-3 flex-wrap">
+              <div className="button-container">
                 <FacebookButton
                   title={text[language].home.partnersSection.bde.facebookButton}
                   link="https://www.facebook.com/bde.telecomps"

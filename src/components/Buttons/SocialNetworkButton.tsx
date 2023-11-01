@@ -24,7 +24,7 @@ const SocialNetworkButton = ({
       )}
     >
       {icon}
-      {title}
+      <span className="hidden sm:inline">{title}</span>
     </Link>
   );
 };

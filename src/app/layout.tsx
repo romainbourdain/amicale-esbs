@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/Language/LanguageProvider";
-import Navbar from "@/components/Navigation/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import ThemeProvider from "@/components/theme/ThemeProvider";
 import "@/styles/globals.css";
 import clsx from "clsx";
@@ -31,7 +31,7 @@ export default function RootLayout({
           <LanguageProvider>
             <div className="flex flex-col h-full">
               <Navbar />
-              <div className="flex-1 m-auto px-12 py-36 w-full max-w-6xl flex flex-col gap-36">
+              <div className="flex-1 m-auto px-12 py-36 sm:pt-52 lg:pt-36 w-full max-w-6xl flex flex-col gap-36">
                 {children}
               </div>
               <Footer />

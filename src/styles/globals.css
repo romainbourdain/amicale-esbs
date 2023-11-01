@@ -25,7 +25,7 @@
     @apply border-fg-ui-gray;
   }
   body {
-    @apply bg-app-gray text-hc-gray;
+    @apply bg-app-gray text-hc-gray w-screen overflow-x-hidden;
   }
 
   h1 {
@@ -85,5 +85,9 @@
 
   strong {
     @apply text-lc;
+  }
+
+  .button-container {
+    @apply flex items-center gap-5 my-3 flex-wrap;
   }
 }

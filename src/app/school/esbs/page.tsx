@@ -103,18 +103,22 @@ const Formation = () => {
         <h2>Formations ESBS</h2>
         <div className="title-par">
           <h3>Diplôme d’ingénieur</h3>
+          <WebsiteButton
+            title="Plus d'infos sur les diplômes d'ingénieur"
+            link="https://esbs.unistra.fr/formations/diplomes-dingenieur"
+          />
           <p>
             Etudier à l’ESBS permet l’obtention d’un des deux diplômes
             d’ingénieurs suivants: Diplôme d’ingénieur en Biotechnologie OU
             Diplôme d’ingénieur en Chimie-Biotechnologie.
           </p>
-          <WebsiteButton
-            title="Plus d'infos sur les diplômes d'ingénieur"
-            link="https://esbs.unistra.fr/formations/diplomes-dingenieur"
-          />
         </div>
         <div className="title-par">
           <h3>Double diplôme – Master</h3>
+          <WebsiteButton
+            title="Plus d'infos sur les Masters"
+            link="https://esbs.unistra.fr/formations/masters"
+          />
           <p>
             Le diplôme d’ingénieur reste assez peu reconnu au niveau
             international. Il est donc nécessaire d’avoir un équivalent master
@@ -126,34 +130,30 @@ const Formation = () => {
             Il y 3 Masters disponibles : Bioproduction, Biologie Synthétique OU
             Haut-débit.
           </p>
-          <WebsiteButton
-            title="Plus d'infos sur les Masters"
-            link="https://esbs.unistra.fr/formations/masters"
-          />
         </div>
         <div className="title-par">
           <h3>Alternance</h3>
+          <WebsiteButton
+            title="Plus d'infos sur l'Alternance"
+            link="https://esbs.unistra.fr/formations/alternance"
+          />
           <p>
             Si l’élève intègre un Master en 2ème année (en parallèle de son
             diplôme d’ingénieur), il lui sera alors possible de faire une
             alternance en 3ème année.
           </p>
-          <WebsiteButton
-            title="Plus d'infos sur l'Alternance"
-            link="https://esbs.unistra.fr/formations/alternance"
-          />
         </div>
         <div className="title-par">
           <h3>Diplôme Universitaire</h3>
+          <WebsiteButton
+            title="Plus d'infos sur les DU"
+            link="https://esbs.unistra.fr/formations/du"
+          />
           <p>
             2 Diplômes Universitaires sont proposés par l’école : Ingénieur
             éco-responsable et Recherche et innovation thérapeutique (accessible
             que sur sélection, 20 places pour TOUTE l’école).
           </p>
-          <WebsiteButton
-            title="Plus d'infos sur les DU"
-            link="https://esbs.unistra.fr/formations/du"
-          />
         </div>
       </section>
     </>
