@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "next lint",
-    "run": "pm2 start pnpm --name amicale-esbs -- start",
+    "launch": "pm2 start pnpm --name amicale-esbs -- start",
     "stop": "pm2 stop amicale-esbs",
     "clear": "pm2 delete amicale-esbs"
   },
