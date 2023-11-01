@@ -1,22 +1,13 @@
-import { NavbarItem, NavbarLink } from "@/types/Navbar";
-import {
-  Beer,
-  Building,
-  DumbbellIcon,
-  FlaskConical,
-  Home,
-  PartyPopper,
-  Pipette,
-  Tent,
-  UserPlus,
-  Users,
-} from "lucide-react";
+"use client";
+
+import { useLanguage } from "../Language/LanguageProvider";
+import { getNavbarItems, getNavbarMenu } from "./NavbarItems";
 import NavLinks from "./NavLinks";
 import NavLogo from "./NavLogo";
 import NavMenu from "./NavMenu";
 import NavTools from "./NavTools";
 
-const Navbar = async () => {
+const Navbar = () => {
   return (
     <>
       <MiddleNavbar />
@@ -26,108 +17,9 @@ const Navbar = async () => {
   );
 };
 
-const navbarLinks: { [key: string]: NavbarLink } = {
-  home: { name: "Home", href: "/", type: "link", icon: <Home /> },
-  association: {
-    name: "L'association",
-    href: "/association",
-    type: "link",
-    icon: <Users />,
-  },
-  esbs: {
-    name: "L'ESBS",
-    href: "/school/esbs",
-    type: "link",
-    icon: <Pipette />,
-  },
-  chembiotech: {
-    name: "ChemBioTech",
-    href: "/school/chembiotech",
-    type: "link",
-    icon: <FlaskConical />,
-  },
-  admissions: {
-    name: "Admissions",
-    href: "/school/admissions",
-    type: "link",
-    icon: <UserPlus />,
-  },
-  integration: {
-    name: "Intégration",
-    href: "/student-life/integration",
-    type: "link",
-    icon: <Tent />,
-  },
-  parties: {
-    name: "Soirées",
-    href: "/student-life/parties",
-    type: "link",
-    icon: <PartyPopper />,
-  },
-  accommodation: {
-    name: "Logement",
-    href: "/student-life/accommodation",
-    type: "link",
-    icon: <Building />,
-  },
-  strasbourg: {
-    name: "Sortir à Strasbourg",
-    href: "/student-life/strasbourg",
-    type: "link",
-    icon: <Beer />,
-  },
-  sports: {
-    name: "Sport",
-    href: "/student-life/sports",
-    type: "link",
-    icon: <DumbbellIcon />,
-  },
-};
-
-const navbarItems: NavbarItem[] = [
-  {
-    ...navbarLinks.association,
-    type: "link",
-  },
-  {
-    name: "L'école",
-    type: "dropdown",
-    content: [
-      { ...navbarLinks.esbs },
-      { ...navbarLinks.chembiotech },
-      { ...navbarLinks.admissions },
-    ],
-  },
-  {
-    name: "Vie étudiante",
-    type: "dropdown",
-    content: [
-      { ...navbarLinks.integration },
-      { ...navbarLinks.parties },
-      { ...navbarLinks.accommodation },
-      { ...navbarLinks.strasbourg },
-      { ...navbarLinks.sports },
-    ],
-  },
-];
-
-const navbarMenu: (NavbarLink | { type: "separator" })[] = [
-  { ...navbarLinks.home },
-  { type: "separator" },
-  { ...navbarLinks.association },
-  { type: "separator" },
-  { ...navbarLinks.esbs },
-  { ...navbarLinks.chembiotech },
-  { ...navbarLinks.admissions },
-  { type: "separator" },
-  { ...navbarLinks.integration },
-  { ...navbarLinks.parties },
-  { ...navbarLinks.accommodation },
-  { ...navbarLinks.strasbourg },
-  { ...navbarLinks.sports },
-];
-
 const LargeNavbar = () => {
+  const { language } = useLanguage();
+  const navbarItems = getNavbarItems(language);
   return (
     <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 hidden lg:flex items-center justify-between py-2 px-5">
       <div className="flex items-center gap-5">
@@ -140,6 +32,8 @@ const LargeNavbar = () => {
 };
 
 const MiddleNavbar = () => {
+  const { language } = useLanguage();
+  const navbarItems = getNavbarItems(language);
   return (
     <nav className="border-b border-b-fg-subtle-gray items-center fixed w-full bg-subtle-gray z-10 flex-col hidden sm:flex lg:hidden">
       <div className="w-full flex items-center py-4 justify-around">
@@ -154,6 +48,8 @@ const MiddleNavbar = () => {
 };
 
 const SmallNavbar = () => {
+  const { language } = useLanguage();
+  const navbarMenu = getNavbarMenu(language);
   return (
     <nav className="container border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 items-center py-4 m-auto justify-between flex sm:hidden">
       <NavLogo />
