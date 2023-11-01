@@ -2,16 +2,16 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import NavDropdown from "./NavDropdown";
 import { NavbarItem } from "@/types/Navbar";
+import { Fragment } from "react";
 
 const NavLinks = ({ items }: { items: NavbarItem[] }) => {
   return (
-    <div className="container flex items-center py-4 m-auto justify-center gap-2">
+    <div className="flex items-center gap-2">
       {items.map((item, id) => (
-        <>
+        <Fragment key={id}>
           {item.type === "link" ? (
             <Link
               href={item.href || ""}
-              key={id}
               className={buttonVariants({
                 variant: "ghost",
               })}
@@ -25,7 +25,7 @@ const NavLinks = ({ items }: { items: NavbarItem[] }) => {
               content={item.content || []}
             />
           )}
-        </>
+        </Fragment>
       ))}
     </div>
   );

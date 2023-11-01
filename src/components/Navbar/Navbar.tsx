@@ -129,26 +129,26 @@ const navbarMenu: (NavbarLink | { type: "separator" })[] = [
 
 const LargeNavbar = () => {
   return (
-    <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 hidden lg:block">
-      <div className="container flex items-center py-2 m-auto justify-between">
-        <div className="flex items-center gap-5">
-          <NavLogo />
-          <NavLinks items={navbarItems} />
-        </div>
-        <NavTools />
+    <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 hidden lg:flex items-center justify-between py-2 px-5">
+      <div className="flex items-center gap-5">
+        <NavLogo />
+        <NavLinks items={navbarItems} />
       </div>
+      <NavTools />
     </nav>
   );
 };
 
 const MiddleNavbar = () => {
   return (
-    <nav className="border-b border-b-fg-subtle-gray fixed w-full bg-subtle-gray z-10 flex-col hidden sm:flex lg:hidden">
-      <div className="container flex items-center py-4 m-auto justify-between">
+    <nav className="border-b border-b-fg-subtle-gray items-center fixed w-full bg-subtle-gray z-10 flex-col hidden sm:flex lg:hidden">
+      <div className="w-full flex items-center py-4 justify-around">
         <NavLogo />
         <NavTools />
       </div>
-      <NavLinks items={navbarItems} />
+      <div className="w-full flex justify-center py-4">
+        <NavLinks items={navbarItems} />
+      </div>
     </nav>
   );
 };
