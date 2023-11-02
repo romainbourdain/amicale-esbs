@@ -1,31 +1,27 @@
 "use client";
 
-import {
-  Dispatch,
-  PropsWithChildren,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { redirect, usePathname } from "next/navigation";
+import { PropsWithChildren, createContext, useContext } from "react";
 
-type LanguageType = {
-  language: "fr" | "en";
-  setLanguage: Dispatch<SetStateAction<"fr" | "en">>;
-};
-
-const LanguageContext = createContext<LanguageType>({} as LanguageType);
+const LanguageContext = createContext<"fr" | "en">("fr");
 
 export const useLanguage = () => {
   return useContext(LanguageContext);
 };
 
-export const LanguageProvider = ({ children }: PropsWithChildren) => {
-  const [language, setLanguage] = useState<"fr" | "en">("fr");
+const LanguageProvider = ({ children }: PropsWithChildren) => {
+  const pathname = usePathname();
+  const lang = pathname.split("/")[1];
+
+  if (lang !== "fr" && lang !== "en") {
+    redirect("/fr");
+  }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={lang as "fr" | "en"}>
       {children}
     </LanguageContext.Provider>
   );
 };
+
+export default LanguageProvider;

@@ -1,5 +1,5 @@
-const FooterText = {
-  copyright: "© 2023 Romain Bourdain - Tous droits réservés",
+const footerText = {
+  copyright: "© 2023 ITS - Tous droits réservés • Développement et Design par",
 };
 
-export default FooterText;
+export default footerText;

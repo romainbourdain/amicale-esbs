@@ -3,8 +3,8 @@ import { useLanguage } from "../Language/LanguageProvider";
 import { Button } from "../ui/button";
 
 const LoginButton = () => {
-  const { language } = useLanguage();
-  return <Button variant="default">{text[language].navbar.login}</Button>;
+  const lang = useLanguage();
+  return <Button variant="default">{text[lang].navbar.login}</Button>;
 };
 
 export default LoginButton;

@@ -1,16 +1,22 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import { useLanguage } from "./LanguageProvider";
 
 const LanguageToggle = () => {
-  const { language, setLanguage } = useLanguage();
-  const toggleLanguage = () => {
-    setLanguage(language === "fr" ? "en" : "fr");
-  };
+  const router = useRouter();
+  const pathname = usePathname();
+  const splitedPathname = pathname.split("/");
+  const lang = splitedPathname[1];
+  splitedPathname[1] = lang === "fr" ? "en" : "fr";
+  const newPathName = splitedPathname.join("/");
+
   return (
-    <Button onClick={toggleLanguage} variant="ghost">
-      {language.toUpperCase()}
+    <Button
+      variant="ghost"
+      onClick={() => router.push(newPathName, { scroll: false })}
+    >
+      {lang.toUpperCase()}
     </Button>
   );
 };
